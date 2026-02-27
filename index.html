@@ -29,31 +29,28 @@
             border-radius: 20px; margin-bottom: 30px; border: 1px solid var(--gold);
         }
         .header-text h1 { font-family: 'Amiri', serif; font-size: 1.8rem; color: #f3e5c1; margin: 5px 0; }
-        .dua-header { font-size: 1.2rem; color: #f3e5c1; background: rgba(212, 175, 55, 0.15); padding: 5px 20px; border-radius: 50px; border: 1px solid var(--gold); display: inline-block; margin-top: 10px; }
 
         .content-grid { display: grid; grid-template-columns: 1fr 350px; gap: 25px; }
         .card-section { background: var(--light-bg); color: #1c3b27; padding: 25px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); margin-bottom: 25px; }
         .section-title { font-family: 'Amiri', serif; font-size: 1.6rem; color: #25633b; border-bottom: 2px solid var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
 
-        /* الأدعية */
-        .dua-item { background: white; padding: 15px; border-radius: 12px; margin-bottom: 12px; border-right: 5px solid var(--gold); font-family: 'Amiri', serif; font-size: 1.15rem; line-height: 1.8; color: #333; }
-
-        /* تسيق المشغل الصوتي */
+        /* مشغل القرآن */
         .quran-player-container { text-align: center; background: white; padding: 20px; border-radius: 15px; border: 1px solid #ddd; }
-        .select-input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--gold); margin-bottom: 10px; font-family: 'Tajawal'; }
-        audio { width: 100%; margin-top: 10px; }
+        .select-input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--gold); margin-bottom: 12px; font-family: 'Tajawal'; font-weight: bold; }
+        audio { width: 100%; margin-top: 10px; border-radius: 30px; }
 
-        /* الأذكار */
-        .azkar-container { display: flex; flex-direction: column; gap: 10px; }
-        .zekr-box { background: white; padding: 12px; border-radius: 10px; border-right: 4px solid var(--gold); cursor: pointer; position: relative; }
-        .zekr-count-badge { position: absolute; left: 10px; top: 10px; background: var(--primary-green); color: white; padding: 1px 10px; border-radius: 8px; font-size: 0.8rem; }
-        .zekr-text { font-family: 'Amiri', serif; font-size: 1.1rem; display: block; padding-top: 5px; }
+        /* الأذكار الموسعة */
+        .azkar-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+        .zekr-box { background: white; padding: 18px; border-radius: 12px; border-right: 6px solid var(--gold); cursor: pointer; transition: 0.2s; position: relative; }
+        .zekr-box:hover { background: #f9fff9; transform: scale(1.02); }
+        .zekr-count { position: absolute; left: 15px; top: 15px; background: var(--primary-green); color: white; padding: 2px 12px; border-radius: 15px; font-size: 0.9rem; }
+        .zekr-text { font-family: 'Amiri', serif; font-size: 1.25rem; font-weight: bold; color: #1e3e2a; }
 
         /* المسبحة */
-        .tasbih-val { font-size: 2.5rem; text-align: center; color: var(--gold); font-family: 'Amiri', serif; display: block; }
-        .tasbih-btn { width: 100%; padding: 12px; border-radius: 10px; border: none; background: var(--primary-green); color: white; font-size: 1.1rem; cursor: pointer; }
+        .tasbih-val { font-size: 3rem; text-align: center; color: var(--gold); font-family: 'Amiri', serif; display: block; }
+        .tasbih-btn { width: 100%; padding: 15px; border-radius: 12px; border: none; background: var(--primary-green); color: white; cursor: pointer; font-size: 1.2rem; }
 
-        @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .header-text h1 { font-size: 1.5rem; } }
+        @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -62,63 +59,98 @@
     <header class="header-spiritual">
         <div class="header-text">
             <h1>الحاج حسن حسين معالي المحسيري</h1>
-            <h1>&</h1>
+            <h1 style="color:var(--gold); font-size: 1.5rem;">&</h1>
             <h1>الحاجة مريم عبدالله سليم</h1>
-            <div class="dua-header">رحمهما الله وغفر لهما وأسكنهما فسيح جناته</div>
+            <div style="font-size: 1.2rem; color: #f3e5c1; margin-top:15px;">رحمهما الله وغفر لهما وجعل الجنة دارهما</div>
         </div>
     </header>
 
     <div class="content-grid">
         <main>
             <section class="card-section">
-                <h3 class="section-title"><i class="fas fa-praying-hands"></i> أدعية للمتوفين</h3>
-                <div class="dua-item">اللهم اغفر لحينا وميتنا، وشاهدنا وغائبنا، وصغيرنا وكبيرنا، وذكرنا وأنثانا. اللهم من أحييته منا فأحيه على الإسلام، ومن توفيته منا فتوفه على الإيمان.</div>
-                <div class="dua-item">اللهم إن كانا محسنين فزد في إحسانهما، وإن كانا مسيئين فتجاوز عن سيئاتهما، اللهم لقّهم برحمتك رضاك، وقِهم فتنة القبر وعذابه.</div>
-                <div class="dua-item">اللهم املأ قبرهما بالرضا، والنور، والفسحة، والسرور. اللهم اجعل قبرهما روضة من رياض الجنة ولا تجعله حفرة من حفر النار.</div>
-                <div class="dua-item">اللهم اجعل عن يمينهما نوراً، وعن شمالهما نوراً، ومن أمامهما نوراً، ومن فوقهما نوراً حتى تبعثهما آمنين مطمئنين في نور من نورك.</div>
+                <h3 class="section-title"><i class="fas fa-clock"></i> مواقيت الصلاة (الأردن - عمان)</h3>
+                <div style="background: white; border-radius: 10px; overflow: hidden;">
+                    <iframe src="https://www.islamicfinder.org/prayer-widget/710667/shafi/2/0/18.0/17.0" style="width:100%; height:250px; border:none;" scrolling="no"></iframe>
+                </div>
             </section>
 
             <section class="card-section">
-                <h3 class="section-title"><i class="fas fa-quran"></i> تلاوات عطرة</h3>
+                <h3 class="section-title"><i class="fas fa-quran"></i> المصحف المرتل</h3>
                 <div class="quran-player-container">
+                    <label>اختر القارئ:</label>
                     <select id="reciterSelect" class="select-input" onchange="updateAudio()">
+                        <option value="https://server8.mp3quran.net/afs/">مشاري راشد العفاسي</option>
                         <option value="https://server7.mp3quran.net/basit/">عبد الباسط عبد الصمد</option>
                         <option value="https://server10.mp3quran.net/minsh/">محمد صديق المنشاوي</option>
-                        <option value="https://server12.mp3quran.net/mishari/">مشاري راشد العفاسي</option>
                     </select>
+
+                    <label>اختر السورة:</label>
                     <select id="surahSelect" class="select-input" onchange="updateAudio()">
                         <option value="001">الفاتحة</option>
                         <option value="018">الكهف</option>
+                        <option value="012">يوسف</option>
+                        <option value="019">مريم</option>
+                        <option value="020">طه</option>
                         <option value="036">يس</option>
+                        <option value="055">الرحمن</option>
+                        <option value="056">الواقعة</option>
                         <option value="067">الملك</option>
+                        <option value="078">النبأ</option>
+                        <option value="087">الأعلى</option>
+                        <option value="093">الضحى</option>
+                        <option value="112">الإخلاص</option>
                     </select>
+
                     <audio id="mainAudio" controls>
                         <source id="audioSource" src="" type="audio/mpeg">
                     </audio>
+                </div>
+            </section>
+
+            <section class="card-section">
+                <h3 class="section-title"><i class="fas fa-star"></i> أذكار وتسبيح (اضغط للتعداد)</h3>
+                <div class="azkar-grid">
+                    <div class="zekr-box" onclick="incZekr(this)">
+                        <span class="zekr-count">0</span>
+                        <span class="zekr-text">سبحان الله وبحمده، سبحان الله العظيم</span>
+                    </div>
+                    <div class="zekr-box" onclick="incZekr(this)">
+                        <span class="zekr-count">0</span>
+                        <span class="zekr-text">أستغفر الله العظيم وأتوب إليه</span>
+                    </div>
+                    <div class="zekr-box" onclick="incZekr(this)">
+                        <span class="zekr-count">0</span>
+                        <span class="zekr-text">لا حول ولا قوة إلا بالله العلي العظيم</span>
+                    </div>
+                    <div class="zekr-box" onclick="incZekr(this)">
+                        <span class="zekr-count">0</span>
+                        <span class="zekr-text">لا إله إلا الله وحده لا شريك له</span>
+                    </div>
+                    <div class="zekr-box" onclick="incZekr(this)">
+                        <span class="zekr-count">0</span>
+                        <span class="zekr-text">اللهم صلِّ وسلم وبارك على نبينا محمد</span>
+                    </div>
+                    <div class="zekr-box" onclick="incZekr(this)">
+                        <span class="zekr-count">0</span>
+                        <span class="zekr-text">سبحان الله، والحمد لله، ولا إله إلا الله، والله أكبر</span>
+                    </div>
                 </div>
             </section>
         </main>
 
         <aside>
             <section class="card-section">
-                <h3 class="section-title"><i class="fas fa-beads"></i> المسبحة</h3>
+                <h3 class="section-title"><i class="fas fa-beads"></i> المسبحة العامة</h3>
                 <span id="tasbih-display" class="tasbih-val">0</span>
-                <button class="tasbih-btn" onclick="mainTasbih()">اضغط للتسبيح</button>
-                <button onclick="resetTasbih()" style="width:100%; margin-top:10px; background:none; border:none; color:#777; cursor:pointer; font-size: 0.8rem;">إعادة ضبط</button>
+                <button class="tasbih-btn" onclick="mainTasbih()">سبّح الآن</button>
+                <button onclick="resetTasbih()" style="width:100%; margin-top:10px; background:none; border:none; color:#777; cursor:pointer;">تصفير العداد</button>
             </section>
 
-            <section class="card-section">
-                <h3 class="section-title"><i class="fas fa-heart"></i> أذكار</h3>
-                <div class="azkar-container">
-                    <div class="zekr-box" onclick="countZekr(this, 33)">
-                        <span class="zekr-count-badge">0 / 33</span>
-                        <span class="zekr-text">سبحان الله وبحمده</span>
-                    </div>
-                    <div class="zekr-box" onclick="countZekr(this, 33)">
-                        <span class="zekr-count-badge">0 / 33</span>
-                        <span class="zekr-text">أستغفر الله العظيم</span>
-                    </div>
-                </div>
+            <section class="card-section" style="font-family: 'Amiri';">
+                <h3 class="section-title"><i class="fas fa-pray"></i> دعاء</h3>
+                <p style="color:#333; font-size: 1.1rem; text-align: center;">
+                    "اللهم يمّن كتابهما، ويسّر حسابهما، وثقّل بالحسنات ميزانهما، وثبّت على الصراط أقدامهما، وأسكنهما في أعلى الجنات بجوار حبيبك ومصطفاك محمد ﷺ."
+                </p>
             </section>
         </aside>
     </div>
@@ -130,21 +162,25 @@
         const surahNumber = document.getElementById('surahSelect').value;
         const audio = document.getElementById('mainAudio');
         const source = document.getElementById('audioSource');
+
         source.src = reciterBase + surahNumber + ".mp3";
         audio.load();
-        audio.play().catch(e => {});
+        audio.play().catch(e => console.log("التشغيل يتطلب نقرة من المستخدم"));
     }
+
     window.onload = updateAudio;
 
-    function countZekr(element, limit) {
-        let badge = element.querySelector('.zekr-count-badge');
-        let current = parseInt(badge.innerText.split(' / ')[0]);
-        if (current < limit) {
-            current++;
-            badge.innerText = current + ' / ' + limit;
-        }
+    // عداد الأذكار الفردي
+    function incZekr(element) {
+        let countSpan = element.querySelector('.zekr-count');
+        let current = parseInt(countSpan.innerText);
+        countSpan.innerText = current + 1;
+        // تأثير بصري بسيط عند الضغط
+        element.style.backgroundColor = "#e8f5e9";
+        setTimeout(() => element.style.backgroundColor = "white", 100);
     }
 
+    // عداد المسبحة العامة
     let mainCount = 0;
     function mainTasbih() {
         mainCount++;
@@ -159,4 +195,3 @@
 
 </body>
 </html>
-
